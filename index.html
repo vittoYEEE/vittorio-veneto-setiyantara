@@ -5,22 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vittorio Veneto Setiyantara</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
-    <header>
+    <header id="home">
       <h1 class="logo">VS</h1>
 
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About me</a></li>
-          <li><a href="#Tools">Tools</a></li>
+          <li><a href="#tools">Tools</a></li>
           <li><a href="#project">Project</a></li>
         </ul>
       </nav>
 
-      <div class="marquee-container">
-        <div class="marquee-content">
+      <div class="text-gerak-1">
+        <div class="text-gerak-content-1">
           <span>PORTOFOLIO</span>
           <span class="dot">•</span>
           <span>PORTOFOLIO</span>
@@ -28,13 +43,117 @@
         </div>
       </div>
     </header>
-    <section>
-      <div class="about">
-        <p class="intro-text">
-          Hi, I'm <em>Vittorio Veneto Setiyantara</em>, a
-          <em>Web Developer</em> based in Indonesia. Here you can see some of my
-          latest code & projects.
+
+    <section id="about" class="about">
+      <p class="text-about">
+        Hi, I'm <em>Vittorio Veneto Setiyantara</em>, a Web Developer based in
+        Indonesia. Here you can see some of my latest code & projects.
+      </p>
+    </section>
+
+    <section id="tools" class="tools-skills">
+      <div class="text-gerak-2">
+        <div class="text-gerak-content-2">
+          <span>TOOLS AND SKILLS</span>
+          <span class="dot">•</span>
+          <span>TOOLS AND SKILLS</span>
+          <span class="dot">•</span>
+        </div>
+      </div>
+      <h1>Tools And Skills</h1>
+      <div class="card-tools">
+        <div class="card1">
+          <img src="./asset/devicon--figma.svg" alt="Figma" />
+        </div>
+        <div class="card1">
+          <img src="./asset/skill-icons--html.svg" alt="HTML" />
+        </div>
+        <div class="card1">
+          <img src="./asset/skill-icons--css.svg" alt="CSS" />
+        </div>
+        <div class="card1">
+          <img src="asset/thesvg-color--lightroom.svg" alt="Lightroom" />
+        </div>
+      </div>
+    </section>
+
+    <section id="project" class="project-text-gerak">
+      <div class="text-gerak-project">
+        <div class="text-gerak-content-project">
+          <span>PROJECT PROJECT PROJECT</span>
+          <span>PROJECT PROJECT PROJECT</span>
+        </div>
+      </div>
+      <h1>Project</h1>
+
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="card-banner">
+            <img src="./asset/SVARA.png" alt="Svara Nusantara" />
+          </div>
+          <div class="card-content">
+            <div class="card-info">
+              <a
+                href="https://svara-nusantara.vercel.app/"
+                target="_blank"
+                class="sub-title"
+                >CLICK HERE TO VISIT</a
+              >
+              <h3 class="main-title">SVARA NUSANTARA</h3>
+            </div>
+            <div class="card-arrow">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-banner">
+            <img src="./asset/SEKOLAH.png" alt="Sekolah Unggul" />
+          </div>
+          <div class="card-content">
+            <div class="card-info">
+              <a
+                href="https://sekolah-unggul.vercel.app/"
+                target="_blank"
+                class="sub-title"
+                >CLICK HERE TO VISIT</a
+              >
+              <h3 class="main-title">SEKOLAH UNGGUL</h3>
+            </div>
+            <div class="card-arrow">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="text-contact">
+        <h1>
+          HIRE <br />
+          <span> ME </span>
+        </h1>
+        <p>
+          Open to creative project collaborations. Let’s <br />
+          build iconic visuals and digital system<br /> architectures together.
         </p>
+      </div>
+
+      <div class="social">
+        <div class="social-card">
+          <p>@vttzrio_</p>
+          <h1>INSTAGRAM•</h1>
+        </div>
+        <div class="social-card">
+          <p>vittoYEEE</p>
+          <h1>GITHUB•</h1>
+        </div>
+        <div class="social-card">
+          <p>vittorio0521@student.abudzar.sch.id</p>
+          <h1>EMAIL•</h1>
+        </div>
       </div>
     </section>
   </body>
