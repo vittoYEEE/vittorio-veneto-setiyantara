@@ -626,35 +626,3 @@ footer {
   padding-left: 100px;
   padding-right: 100px;
 }
-.logo-2 {
-  color: white;
-  font-family: "Pacifico", cursive;
-  font-style: normal;
-  font-weight: 400;
-}
-.navigasi-footer {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
-.navigasi-footer ul {
-  display: flex;
-  flex-direction: column;
-}
-
-.navigasi-footer li {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  justify-content: end;
-  color: white;
-}
-.navigasi-footer li a {
-  text-decoration: none;
-  padding: 10px 20px;
-  color: white;
-  font-size: 14px;
-  font-family: sans-serif;
-  font-weight: 500;
-}
