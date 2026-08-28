@@ -1,11 +1,161 @@
+:root {
+  /* Skema Warna Loader & Site (Light Mode sesuai gambar) */
+  --bg: black; /* Background krem terang untuk loader */
+  --fg: #9d8df1aa; /* Warna teks loader hitam pekat */
+  --font-stack: "Poppins", "Montserrat", sans-serif;
+  --hairline: #9480f6; /* Garis pembelah tengah berwarna hitam tipis */
+  --paper: #f4f4f0;
+  --ink: #000000;
+  --line: rgba(0, 0, 0, 0.2);
+  --muted: #666666;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background: radial-gradient(circle, #7154ff9d, #000000);
+  overflow-x: hidden;
+  font-family: var(--font-stack);
 }
+
+/* ================= LOADER & CURTAIN (EFEK TERBELAH) ================= */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background-color: transparent; /* Transparan agar konten utama langsung terlihat di sela tirai */
+}
+
+.curtain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(
+    --bg
+  ); /* Latar krem solid agar potongan teks terpisah bersih */
+  transition:
+    transform 1s cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.curtain-left {
+  clip-path: inset(0 50% 0 0);
+}
+
+.curtain-right {
+  clip-path: inset(0 0 0 50%);
+}
+
+.curtain-left.open {
+  transform: translateX(-100%);
+  opacity: 1; /* Tetap solid 100% agar teks terbelah rapi tanpa bayangan blur */
+}
+
+.curtain-right.open {
+  transform: translateX(100%);
+  opacity: 1;
+}
+
+.stage-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.word-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.wordText {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-stack);
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(0.25em);
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.22, 0.9, 0.32, 1);
+}
+
+.wordText.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ticker-mask {
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.ticker-mask.show {
+  opacity: 1;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-ticker 9s linear infinite;
+}
+
+.ticker-track span {
+  font-family: var(--font-stack);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-right: 1.2em;
+}
+
+/* Garis Tipis Vertikal Pembelah Tengah */
+.divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 0;
+  background: var(--hairline);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: 2;
+  transition:
+    height 0.5s cubic-bezier(0.22, 0.9, 0.32, 1),
+    opacity 0.4s ease;
+}
+
+.divider.grow {
+  height: 100vh;
+  opacity: 1;
+}
+
+.divider.fade {
+  opacity: 0;
+}
+
+/* ================= HEADER & NAV ================= */
 header {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -13,7 +163,6 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +176,7 @@ header {
   position: fixed;
   top: 30px;
   left: 100px;
-  color: #7154ff9d;
+  color: #7054ffed;
   font-family: "Pacifico", cursive;
   font-style: italic;
   font-size: 40px;
@@ -45,6 +194,7 @@ header {
   backdrop-filter: blur(8px);
   position: fixed;
   z-index: 100;
+  top: 25px;
 }
 
 .navigasi ul {
@@ -102,17 +252,12 @@ header {
   padding-right: 100px;
   font-family: sans-serif;
 }
+
 .dot {
   font-size: 400px;
 }
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+
+/* ================= ABOUT ================= */
 .about {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -126,6 +271,7 @@ header {
   color: white;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
 }
 
 .text-about {
@@ -142,11 +288,12 @@ header {
   font-style: italic;
   font-weight: 400;
 }
+
+/* ================= TOOLS & SKILLS ================= */
 .tools-skills {
   min-height: 100vh;
   background-color: white;
   display: flex;
-  align-items: center;
   position: relative;
   overflow: hidden;
   flex-direction: column;
@@ -156,10 +303,7 @@ header {
 
 .tools-skills h1 {
   color: black;
-  font-family: sans-serif;
   font-size: 48px;
-  font-weight: 700;
-  text-align: center;
   position: relative;
   z-index: 2;
   margin-top: 160px;
@@ -173,7 +317,6 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  position: absolute;
   transform: translateY(-50%);
   width: 100%;
   overflow: hidden;
@@ -202,16 +345,6 @@ header {
   letter-spacing: 2px;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-/* --- SKILLS AND TOOLS --- */
-
 .container-utama-tools {
   display: flex;
   flex-direction: row;
@@ -232,7 +365,6 @@ header {
   height: 350px;
   border: 5px solid rgba(0, 0, 0, 0.56);
   border-radius: 50%;
-  margin-top: 0;
   z-index: 2;
   animation: spinOrbit 15s linear infinite;
   flex-shrink: 0;
@@ -294,22 +426,9 @@ header {
   transition: transform 0.3s ease;
 }
 
-@keyframes spinOrbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes counterSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
+.spinner-container:hover,
+.spinner-container:hover .icon-wrapper img {
+  animation-play-state: paused;
 }
 
 .icon-wrapper:hover {
@@ -323,13 +442,10 @@ header {
   transform: scale(1.3);
 }
 
-/* --- SKILLS PROGRES CSS --- */
-
 .skills-bar-container {
   flex: 1;
   min-width: 300px;
   max-width: 550px;
-  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -377,7 +493,8 @@ header {
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-/*PROJECT GERAK CSS*/
+
+/* ================= PROJECTS ================= */
 .project-text-gerak {
   min-height: 100vh;
   background-color: black;
@@ -386,16 +503,12 @@ header {
   position: relative;
   overflow: hidden;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
 }
 
 .project-text-gerak h1 {
   color: white;
-  font-family: sans-serif;
   font-size: 60px;
-  font-weight: 700;
-  text-align: center;
   position: relative;
   z-index: 2;
   margin-top: 150px;
@@ -409,7 +522,6 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  position: absolute;
   transform: translateY(-50%);
   width: 100%;
   overflow: hidden;
@@ -438,34 +550,14 @@ header {
   letter-spacing: 2px;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-.projects-container {
-  margin-top: 150px;
-}
-
-.projects-section {
-  background-color: #0d0d0d;
-  min-height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  margin-top: 100px;
-  gap: 150px;
-}
-
 .projects-container {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 150px;
+  z-index: 2;
+  padding: 0 20px;
 }
 
 .project-card {
@@ -524,9 +616,11 @@ header {
   text-decoration: none;
   transition: 0.4s;
 }
+
 .sub-title:hover {
   color: #7154ff9d;
 }
+
 .main-title {
   color: #ffffff;
   font-size: 22px;
@@ -548,37 +642,46 @@ header {
   transform: translate(3px, -3px);
   color: #7154ff9d;
 }
-/* --- CONTACT CSS --- */
+
+/* ================= CONTACT ================= */
 .contact {
   min-height: 100vh;
   display: flex;
   background-color: white;
   justify-content: space-between;
   align-items: center;
+  padding: 50px 0;
 }
+
 .text-contact {
   line-height: 1.1;
   margin-left: 100px;
 }
+
 .text-contact h1 {
   font-size: 100px;
   font-family: sans-serif;
   font-weight: 800;
 }
+
 .text-contact span {
   color: #7154ff9d;
 }
+
 .text-contact p {
   font-size: 16px;
   font-family: sans-serif;
   font-weight: 500;
   color: rgb(174, 171, 171);
+  margin-top: 15px;
 }
+
 .social {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .social-card {
   display: flex;
   align-items: center;
@@ -587,42 +690,164 @@ header {
   margin-right: 100px;
   transition: 0.3s;
 }
+
 .social-card:hover {
   color: #7154ff9d;
-  font-weight: 800;
 }
+
 .social-card h1 {
   font-size: 80px;
   font-family: sans-serif;
   font-weight: 800;
 }
+
 .social-card p {
   font-size: 14px;
   font-family: sans-serif;
   font-weight: 500;
   color: rgb(174, 171, 171);
 }
+
+/* ================= FOOTER ================= */
 footer {
   color: black;
   background-color: white;
 }
+
 .text-footer h1 {
   font-family: sans-serif;
   font-size: 90px;
   text-align: center;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
+
 .text-footer span {
   font-size: 160px;
   color: #7154ff9d;
 }
-.container-utama-footer {
-  background-color: rgb(0, 0, 0);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 20vh;
-  padding-left: 100px;
-  padding-right: 100px;
+
+/* ================= KEYFRAMES ================= */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spinOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes scroll-ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .logo {
+    left: 30px;
+    top: 20px;
+    font-size: 32px;
+  }
+  .navigasi {
+    width: 90%;
+    min-width: unset;
+    height: 60px;
+    top: 20px;
+  }
+  .navigasi ul {
+    gap: 25px;
+  }
+  .navigasi a {
+    font-size: 16px;
+  }
+  .text-contact h1 {
+    font-size: 70px;
+  }
+  .social-card h1 {
+    font-size: 50px;
+  }
+  .text-footer h1 {
+    font-size: 60px;
+  }
+  .text-footer span {
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-about {
+    font-size: 32px;
+  }
+  .container-utama-tools {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .contact {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+  .text-contact {
+    margin-left: 0;
+    text-align: center;
+  }
+  .text-contact h1 {
+    font-size: 50px;
+  }
+  .social {
+    width: 100%;
+    align-items: center;
+  }
+  .social-card {
+    margin-right: 0;
+    justify-content: center;
+    gap: 15px;
+  }
+  .social-card h1 {
+    font-size: 36px;
+  }
+  .project-card {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordText {
+    transition-duration: 0.2s !important;
+    transform: none !important;
+  }
+  .curtain {
+    transition-duration: 0.35s !important;
+  }
+  .divider {
+    transition-duration: 0.2s !important;
+  }
+  .ticker-track {
+    animation: none;
+  }
 }

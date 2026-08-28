@@ -4,25 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vittorio Veneto Setiyantara</title>
-    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="icon" type="image/png" href="./asset/logo.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@700;800&family=Poppins:wght@700;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header id="home">
+      <div id="loader">
+        <div class="curtain curtain-left" id="curtainLeft">
+          <div class="stage-wrap">
+            <div class="word-stage"><span class="wordText"></span></div>
+            <div class="ticker-mask" id="tickerMask">
+              <div class="ticker-track">
+                <span>VS • WEB DEVELOPER • UI/UX DESIGN • </span>
+                <span>VS • WEB DEVELOPER • UI/UX DESIGN • </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="curtain curtain-right" id="curtainRight">
+          <div class="stage-wrap">
+            <div class="word-stage"><span class="wordText"></span></div>
+            <div class="ticker-mask">
+              <div class="ticker-track">
+                <span>VS • WEB DEVELOPER • UI/UX DESIGN • </span>
+                <span>VS • WEB DEVELOPER • UI/UX DESIGN • </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="divider" id="divider"></div>
+      </div>
       <h1 class="logo">VS</h1>
 
       <nav class="navigasi">
@@ -74,7 +98,7 @@
             <img src="./asset/skill-icons--css.svg" alt="CSS" />
           </div>
           <div class="icon-wrapper">
-            <img src="asset/thesvg-color--lightroom.svg" alt="Lightroom" />
+            <img src="./asset/thesvg-color--lightroom.svg" alt="Lightroom" />
           </div>
         </div>
 
@@ -189,6 +213,7 @@
         </div>
       </div>
     </section>
+
     <footer>
       <div class="text-footer">
         <h1>
@@ -197,7 +222,8 @@
           BERKARYA
         </h1>
       </div>
-      <div class="container-utama-footer"></div>
     </footer>
+
+    <script src="./script.js"></script>
   </body>
 </html>
