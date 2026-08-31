@@ -1,16 +1,16 @@
 (function () {
   const WORDS = [
     { text: "Welcome", dir: "ltr", tracking: "-0.02em", duration: 500 },
-    { text: "Selamat Datang", dir: "ltr", tracking: "-0.01em", duration: 380 },
+    { text: "مرحباً", dir: "ltr", tracking: "-0.01em", duration: 380 },
     { text: "Bienvenue", dir: "ltr", tracking: "-0.02em", duration: 300 },
     { text: "Willkommen", dir: "ltr", tracking: "-0.02em", duration: 240 },
     { text: "Bienvenido", dir: "ltr", tracking: "-0.02em", duration: 190 },
     { text: "Benvenuto", dir: "ltr", tracking: "-0.02em", duration: 150 },
-    { text: "ようこそ", dir: "ltr", tracking: "0.05em", duration: 120 },
+    { text: "selamat datang", dir: "ltr", tracking: "0.05em", duration: 120 },
     { text: "환영합니다", dir: "ltr", tracking: "0.02em", duration: 100 },
     { text: "欢迎", dir: "ltr", tracking: "0.08em", duration: 90 },
     {
-      text: "مرحباً",
+      text: "ようこそ",
       dir: "rtl",
       tracking: "0em",
       duration: 1400,

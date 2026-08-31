@@ -1,9 +1,9 @@
 :root {
-  /* Skema Warna Loader & Site (Light Mode sesuai gambar) */
-  --bg: black; /* Background krem terang untuk loader */
-  --fg: #9d8df1aa; /* Warna teks loader hitam pekat */
+  /* Skema Warna Loader & Site */
+  --bg: black;
+  --fg: #9e8df1;
   --font-stack: "Poppins", "Montserrat", sans-serif;
-  --hairline: #9480f6; /* Garis pembelah tengah berwarna hitam tipis */
+  --hairline: #9480f6;
   --paper: #f4f4f0;
   --ink: #000000;
   --line: rgba(0, 0, 0, 0.2);
@@ -14,11 +14,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Mencegah scrollbar bocor ke samping saat di-zoom 125%+ */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   background: radial-gradient(circle, #7154ff9d, #000000);
-  overflow-x: hidden;
   font-family: var(--font-stack);
 }
 
@@ -28,16 +36,15 @@ body {
   inset: 0;
   z-index: 9999;
   overflow: hidden;
-  background-color: transparent; /* Transparan agar konten utama langsung terlihat di sela tirai */
+  background-color: transparent;
+  scrollbar-width: none;
 }
 
 .curtain {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: var(
-    --bg
-  ); /* Latar krem solid agar potongan teks terpisah bersih */
+  background: var(--bg);
   transition:
     transform 1s cubic-bezier(0.76, 0, 0.24, 1),
     opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -54,7 +61,7 @@ body {
 
 .curtain-left.open {
   transform: translateX(-100%);
-  opacity: 1; /* Tetap solid 100% agar teks terbelah rapi tanpa bayangan blur */
+  opacity: 1;
 }
 
 .curtain-right.open {
@@ -121,7 +128,7 @@ body {
 .ticker-track span {
   font-family: var(--font-stack);
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: clamp(0.65rem, 1.5vw, 0.75rem);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--muted);
@@ -175,11 +182,11 @@ header {
 .logo {
   position: fixed;
   top: 30px;
-  left: 100px;
+  left: clamp(20px, 6vw, 100px);
   color: #7054ffed;
   font-family: "Pacifico", cursive;
   font-style: italic;
-  font-size: 40px;
+  font-size: clamp(24px, 3.5vw, 40px);
   font-weight: 800;
   z-index: 100;
 }
@@ -187,14 +194,14 @@ header {
 .navigasi {
   background-color: #171717c0;
   border-radius: 100px;
-  width: 35%;
-  min-width: 350px;
-  height: 80px;
+  width: min(90%, 550px);
+  height: clamp(50px, 8vh, 80px);
   display: flex;
   backdrop-filter: blur(8px);
   position: fixed;
   z-index: 100;
   top: 25px;
+  padding: 0 10px;
 }
 
 .navigasi ul {
@@ -203,7 +210,7 @@ header {
   align-items: center;
   width: 100%;
   height: 100%;
-  gap: 50px;
+  gap: clamp(15px, 3vw, 50px);
 }
 
 .navigasi li {
@@ -215,9 +222,10 @@ header {
 .navigasi a {
   text-decoration: none;
   color: white;
-  font-size: 20px;
+  font-size: clamp(14px, 1.5vw, 20px);
   font-family: sans-serif;
   transition: color 0.3s ease;
+  font-weight:700;
 }
 
 .navigasi a:hover {
@@ -233,7 +241,11 @@ header {
   color: #ffffff8a;
   white-space: nowrap;
   display: flex;
-  font-size: 500px;
+  font-size: clamp(
+    120px,
+    24vw,
+    450px
+  ); /* Disesuaikan agar aman di Scale 125% */
   font-weight: 700;
   line-height: 0.75;
   pointer-events: none;
@@ -249,12 +261,12 @@ header {
 .text-gerak-content-1 span {
   display: flex;
   align-items: center;
-  padding-right: 100px;
+  padding-right: clamp(30px, 8vw, 100px);
   font-family: sans-serif;
 }
 
 .dot {
-  font-size: 400px;
+  font-size: clamp(80px, 18vw, 350px);
 }
 
 /* ================= ABOUT ================= */
@@ -265,19 +277,19 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh; /* Menggunakan min-height agar tidak terpotong */
   background-color: black;
   display: flex;
   color: white;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding: 50px 20px;
 }
 
 .text-about {
   font-family: sans-serif;
-  font-size: 50px;
-  line-height: 1.1;
+  font-size: clamp(24px, 4vw, 50px);
+  line-height: 1.2;
   color: #ffffff;
   text-align: center;
   max-width: 700px;
@@ -299,18 +311,20 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding: 0 20px 80px 20px;
 }
 
 .tools-skills h1 {
   color: black;
-  font-size: 48px;
+  font-size: clamp(32px, 4vw, 48px);
   position: relative;
   z-index: 2;
-  margin-top: 160px;
+  margin-top: clamp(100px, 15vh, 160px);
   font-family: "Pacifico", cursive;
   font-style: normal;
   font-weight: 400;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .text-gerak-2 {
@@ -323,7 +337,7 @@ header {
   white-space: nowrap;
   display: flex;
   pointer-events: none;
-  margin-top: 200px;
+  margin-top: clamp(120px, 18vh, 200px);
   z-index: 1;
 }
 
@@ -336,7 +350,7 @@ header {
 
 .text-gerak-content-2 span {
   font-family: sans-serif;
-  font-size: 180px;
+  font-size: clamp(80px, 12vw, 180px);
   font-weight: 800;
   text-transform: uppercase;
   color: transparent;
@@ -350,19 +364,18 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 100px;
+  gap: clamp(40px, 6vw, 100px);
   width: 100%;
   max-width: 1200px;
-  margin-top: 100px;
+  margin-top: clamp(40px, 8vh, 100px);
   z-index: 2;
-  padding: 0 40px;
   flex-wrap: wrap;
 }
 
 .spinner-container {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: clamp(250px, 50vw, 350px);
+  height: clamp(250px, 50vw, 350px);
   border: 5px solid rgba(0, 0, 0, 0.56);
   border-radius: 50%;
   z-index: 2;
@@ -384,12 +397,12 @@ header {
 
 .icon-wrapper {
   position: absolute;
-  width: 80px;
-  height: 80px;
-  margin: -40px;
+  width: clamp(50px, 10vw, 80px);
+  height: clamp(50px, 10vw, 80px);
+  margin: calc(clamp(50px, 10vw, 80px) / -2);
   background: #000;
   border-radius: 100%;
-  padding: 15px;
+  padding: clamp(10px, 2vw, 15px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -444,7 +457,7 @@ header {
 
 .skills-bar-container {
   flex: 1;
-  min-width: 300px;
+  min-width: min(100%, 300px);
   max-width: 550px;
   display: flex;
   flex-direction: column;
@@ -460,7 +473,7 @@ header {
 .skill-name {
   font-family: sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: clamp(15px, 1.5vw, 18px);
   color: #000;
 }
 
@@ -504,18 +517,20 @@ header {
   overflow: hidden;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 0 20px 80px 20px;
 }
 
 .project-text-gerak h1 {
   color: white;
-  font-size: 60px;
+  font-size: clamp(36px, 5vw, 60px);
   position: relative;
   z-index: 2;
-  margin-top: 150px;
+  margin-top: clamp(100px, 15vh, 150px);
   font-family: "Pacifico", cursive;
   font-style: normal;
   font-weight: 400;
   text-shadow: 2px 2px 4px rgba(252, 249, 249, 0.685);
+  text-align: center;
 }
 
 .text-gerak-project {
@@ -528,7 +543,7 @@ header {
   white-space: nowrap;
   display: flex;
   pointer-events: none;
-  margin-top: 200px;
+  margin-top: clamp(120px, 18vh, 200px);
   z-index: 1;
 }
 
@@ -541,7 +556,7 @@ header {
 
 .text-gerak-content-project span {
   font-family: sans-serif;
-  font-size: 180px;
+  font-size: clamp(80px, 12vw, 180px);
   font-weight: 800;
   text-transform: uppercase;
   color: transparent;
@@ -555,13 +570,15 @@ header {
   gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 150px;
+  margin-top: clamp(60px, 10vh, 150px);
   z-index: 2;
-  padding: 0 20px;
+  width: 100%;
+  max-width: 1300px;
 }
 
 .project-card {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   background-color: #1a1a1a;
   border-radius: 20px;
   overflow: hidden;
@@ -581,7 +598,7 @@ header {
 
 .card-banner {
   width: 100%;
-  height: 240px;
+  height: clamp(180px, 25vh, 240px);
   overflow: hidden;
   background-color: #000;
 }
@@ -598,7 +615,7 @@ header {
 }
 
 .card-content {
-  padding: 24px;
+  padding: clamp(16px, 3vw, 24px);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -623,7 +640,7 @@ header {
 
 .main-title {
   color: #ffffff;
-  font-size: 22px;
+  font-size: clamp(18px, 2vw, 22px);
   font-weight: 700;
   font-family: sans-serif;
   letter-spacing: 0.5px;
@@ -650,16 +667,19 @@ header {
   background-color: white;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 0;
+  padding: 60px clamp(20px, 6vw, 100px); /* Margin kaku 100px dihilangkan */
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .text-contact {
   line-height: 1.1;
-  margin-left: 100px;
+  max-width: 600px;
+  margin-left: 0;
 }
 
 .text-contact h1 {
-  font-size: 100px;
+  font-size: clamp(45px, 7.5vw, 100px);
   font-family: sans-serif;
   font-weight: 800;
 }
@@ -669,7 +689,7 @@ header {
 }
 
 .text-contact p {
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
   font-family: sans-serif;
   font-weight: 500;
   color: rgb(174, 171, 171);
@@ -680,14 +700,15 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 15px;
 }
 
 .social-card {
   display: flex;
   align-items: center;
-  gap: 30px;
-  justify-content: end;
-  margin-right: 100px;
+  gap: clamp(15px, 3vw, 30px);
+  justify-content: flex-end;
+  margin-right: 0;
   transition: 0.3s;
 }
 
@@ -696,7 +717,7 @@ header {
 }
 
 .social-card h1 {
-  font-size: 80px;
+  font-size: clamp(36px, 5.5vw, 80px);
   font-family: sans-serif;
   font-weight: 800;
 }
@@ -712,19 +733,22 @@ header {
 footer {
   color: black;
   background-color: white;
+  padding: 40px 20px;
 }
 
 .text-footer h1 {
   font-family: sans-serif;
-  font-size: 90px;
+  font-size: clamp(36px, 6.5vw, 90px);
   text-align: center;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: clamp(30px, 8vh, 100px);
+  padding-bottom: clamp(30px, 8vh, 100px);
+  line-height: 1.1;
 }
 
 .text-footer span {
-  font-size: 160px;
+  font-size: clamp(60px, 11vw, 160px);
   color: #7154ff9d;
+  display: inline-block;
 }
 
 /* ================= KEYFRAMES ================= */
@@ -764,75 +788,29 @@ footer {
   }
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
 @media (max-width: 992px) {
   .logo {
-    left: 30px;
-    top: 20px;
-    font-size: 32px;
-  }
-  .navigasi {
-    width: 90%;
-    min-width: unset;
-    height: 60px;
+    left: 20px;
     top: 20px;
   }
-  .navigasi ul {
-    gap: 25px;
+  .contact {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .navigasi a {
-    font-size: 16px;
+  .social {
+    width: 100%;
+    align-items: flex-start;
   }
-  .text-contact h1 {
-    font-size: 70px;
-  }
-  .social-card h1 {
-    font-size: 50px;
-  }
-  .text-footer h1 {
-    font-size: 60px;
-  }
-  .text-footer span {
-    font-size: 100px;
+  .social-card {
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 768px) {
-  .text-about {
-    font-size: 32px;
-  }
   .container-utama-tools {
     flex-direction: column;
-    gap: 50px;
-  }
-  .contact {
-    flex-direction: column;
-    justify-content: center;
     gap: 40px;
-    padding: 40px 20px;
-  }
-  .text-contact {
-    margin-left: 0;
-    text-align: center;
-  }
-  .text-contact h1 {
-    font-size: 50px;
-  }
-  .social {
-    width: 100%;
-    align-items: center;
-  }
-  .social-card {
-    margin-right: 0;
-    justify-content: center;
-    gap: 15px;
-  }
-  .social-card h1 {
-    font-size: 36px;
-  }
-  .project-card {
-    width: 100%;
-    max-width: 420px;
   }
 }
 
