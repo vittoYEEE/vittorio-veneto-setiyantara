@@ -121,3 +121,55 @@
 
   requestAnimationFrame(() => runSequence(0));
 })();
+const hero = document.querySelector(".hero-section");
+const glow = document.querySelector(".cursor-glow");
+
+hero.addEventListener("mousemove", (e) => {
+  // Mengambil posisi kursor relatif terhadap elemen hero
+  const rect = hero.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  // Mengirim koordinat ke CSS
+  glow.style.setProperty("--x", `${x}px`);
+  glow.style.setProperty("--y", `${y}px`);
+});
+const footerHero = document.querySelector(".footer-hero");
+const footerGlow = document.getElementById("footerGlow");
+
+if (footerHero && footerGlow) {
+  footerHero.addEventListener("mousemove", (e) => {
+    const rect = footerHero.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    footerGlow.style.setProperty("--x", `${x}px`);
+    footerGlow.style.setProperty("--y", `${y}px`);
+  });
+}
+// ================= REVEAL ON SCROLL (INTERSECTION OBSERVER) =================
+document.addEventListener("DOMContentLoaded", () => {
+  // Target elemen yang akan diberi animasi saat di-scroll
+  const animatedTargets = document.querySelectorAll(
+    ".spinner-container, .skill-item, .project-card, #contact",
+  );
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2, // Elemen mulai dianimasikan jika 20% bagiannya sudah terlihat di layar
+  };
+
+  const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Tambahkan class 'in-view' untuk memicu animasi CSS
+        entry.target.classList.add("in-view");
+        // Hentikan pantauan agar animasi hanya berjalan 1 kali saat pertama di-scroll
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  animatedTargets.forEach((target) => scrollObserver.observe(target));
+});

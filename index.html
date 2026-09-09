@@ -26,7 +26,7 @@
         <div class="curtain curtain-left" id="curtainLeft">
           <div class="stage-wrap">
             <div class="word-stage"><span class="wordText"></span></div>
-            <div class="ticker-mask" id="tickerMask">
+            <div class="ticker-mask" id="tickerMaskLeft">
               <div class="ticker-track">
                 <span>VS • WEB DEVELOPER • UI/UX DESIGN • </span>
                 <span>VS • WEB DEVELOPER • UI/UX DESIGN • </span>
@@ -37,7 +37,7 @@
         <div class="curtain curtain-right" id="curtainRight">
           <div class="stage-wrap">
             <div class="word-stage"><span class="wordText"></span></div>
-            <div class="ticker-mask">
+            <div class="ticker-mask" id="tickerMaskRight">
               <div class="ticker-track">
                 <span>VS • WEB DEVELOPER • UI/UX DESIGN • </span>
                 <span>VS • WEB DEVELOPER • UI/UX DESIGN • </span>
@@ -50,12 +50,22 @@
       <h1 class="logo">VS</h1>
 
       <nav class="navigasi">
-        <ul>
+        <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About me</a></li>
           <li><a href="#tools">Tools</a></li>
           <li><a href="#project">Project</a></li>
         </ul>
+
+        <a
+          href="javascript:void(0);"
+          onclick="toggleMenu()"
+          class="hamburger-icon"
+          id="hamburgerIcon"
+          aria-label="Toggle menu"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </a>
       </nav>
 
       <div class="text-gerak-1">
@@ -70,8 +80,9 @@
 
     <section id="about" class="about">
       <p class="text-about">
-        Hello My Name s <em>Vittorio Veneto Setiyantara</em>, a Web Developer
-        based in Indonesia. Here you can see some of my latest code & projects.
+        Hello, my name is <em>Vittorio Veneto Setiyantara</em>, a Web Developer
+        based in Indonesia. Here you can see some of my latest code &amp;
+        projects.
       </p>
     </section>
 
@@ -143,6 +154,7 @@
       <h1>Project</h1>
 
       <div class="projects-container">
+        <!-- Card 1 -->
         <div class="project-card">
           <div class="card-banner">
             <img src="./asset/SVARA.png" alt="Svara Nusantara" />
@@ -152,6 +164,7 @@
               <a
                 href="https://svara-nusantara.vercel.app/"
                 target="_blank"
+                rel="noopener"
                 class="sub-title"
                 >CLICK HERE TO VISIT</a
               >
@@ -163,6 +176,7 @@
           </div>
         </div>
 
+        <!-- Card 2 -->
         <div class="project-card">
           <div class="card-banner">
             <img src="./asset/SEKOLAH.png" alt="Sekolah Unggul" />
@@ -172,10 +186,36 @@
               <a
                 href="https://sekolah-unggul.vercel.app/"
                 target="_blank"
+                rel="noopener"
                 class="sub-title"
                 >CLICK HERE TO VISIT</a
               >
               <h3 class="main-title">SEKOLAH UNGGUL</h3>
+            </div>
+            <div class="card-arrow">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="project-card">
+          <div class="card-banner">
+            <img
+              src="./asset/screencapture-ui-food-tailwind-vercel-app-2026-09-08-12_27_04.png"
+              alt="UI Food Tailwind"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-info">
+              <a
+                href="http://127.0.0.1:3004/index.html?vscode-livepreview=true"
+                target="_blank"
+                rel="noopener"
+                class="sub-title"
+                >CLICK HERE TO VISIT</a
+              >
+              <h3 class="main-title">UI FOOD TAILWIND</h3>
             </div>
             <div class="card-arrow">
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -189,41 +229,88 @@
       <div class="text-contact">
         <h1>
           HIRE <br />
-          <span> ME </span>
+          <span>ME</span>
         </h1>
         <p>
-          Open to creative project collaborations. Let’s <br />
+          Open to creative project collaborations. Let's <br />
           build iconic visuals and digital system<br />
           architectures together.
         </p>
       </div>
 
       <div class="social">
-        <div class="social-card">
+        <a
+          class="social-card"
+          href="https://instagram.com/vttzrio_"
+          target="_blank"
+          rel="noopener"
+        >
           <p>@vttzrio_</p>
           <h1>INSTAGRAM•</h1>
-        </div>
-        <div class="social-card">
+        </a>
+        <a
+          class="social-card"
+          href="https://github.com/vittoYEEE"
+          target="_blank"
+          rel="noopener"
+        >
           <p>vittoYEEE</p>
           <h1>GITHUB•</h1>
-        </div>
-        <div class="social-card">
+        </a>
+        <a
+          class="social-card"
+          href="mailto:vittorio0521@student.abudzar.sch.id"
+        >
           <p>vittorio0521@student.abudzar.sch.id</p>
           <h1>EMAIL•</h1>
-        </div>
+        </a>
       </div>
     </section>
 
-    <footer>
-      <div class="text-footer">
-        <h1>
-          <span>#MARI</span>
-          <br>
-          BERKARYA
-        </h1>
+    <footer id="contact-footer">
+      <div class="footer-hero">
+        <!-- Elemen penampung efek pendaran cahaya (glow) -->
+        <div class="cursor-glow" id="footerGlow"></div>
+
+        <div class="footer-content">
+          <p class="footer-subtitle">HAVE AN IDEA IN MIND?</p>
+          <h1 class="footer-title">
+            LET'S WORK <br />
+            <span class="glow-text">TOGETHER.</span>
+          </h1>
+
+          <div class="footer-cta">
+            <a
+              href="mailto:vittorio0521@student.abudzar.sch.id"
+              class="btn-email"
+            >
+              <span>Get in Touch</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="footer-bottom">
+            <p class="copyright">
+              © 2026 Vittorio Veneto Setiyantara. All rights reserved.
+            </p>
+            <div class="footer-socials">
+              <a
+                href="https://instagram.com/vttzrio_"
+                target="_blank"
+                rel="noopener"
+                >Instagram</a
+              >
+              <a
+                href="https://github.com/vittoYEEE"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
-
     <script src="./script.js"></script>
   </body>
 </html>
