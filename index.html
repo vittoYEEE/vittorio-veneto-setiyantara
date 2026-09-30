@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -85,65 +85,105 @@
       </header>
 
       <section id="about" class="about">
-        <p class="text-about">
-          Hello, my name is <em>Vittorio Veneto Setiyantara</em>, a Web
-          Developer based in Indonesia. Here you can see some of my latest code
-          &amp; projects.
-        </p>
+      
+        <div class="about-story">
+          <div class="about-story-heading">
+            <p class="about-story-kicker">ABOUT · INDONESIA</p>
+            <h2>Design with Purpose and Personality</h2>
+          </div>
+          <div class="about-story-copy">
+            <p class="text-about">
+              Hello, I'm <em>Vittorio Veneto Setiyantara</em>, a web developer
+              and designer based in Indonesia. I enjoy shaping thoughtful
+              digital experiences with clear layouts, expressive visuals, and
+              details that feel natural to use.
+            </p>
+            <p>
+              From early sketches to the final line of code, I bring design and
+              development together to make ideas feel useful, memorable, and
+              distinctly human.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section id="tools" class="tools-skills">
-        <div class="text-gerak-2">
-          <div class="text-gerak-content-2">
+        <div class="tools-marquee" aria-hidden="true">
+          <div class="tools-marquee-track">
             <span>TOOLS AND SKILLS</span>
-            <span class="dot">•</span>
             <span>TOOLS AND SKILLS</span>
-            <span class="dot">•</span>
+            <span>TOOLS AND SKILLS</span>
+            <span>TOOLS AND SKILLS</span>
           </div>
         </div>
-        <h1>Tools And Skills</h1>
+        <div class="tools-showcase">
+          <div
+            class="tool-card-stage"
+            aria-label="Design and development tools"
+          >
+            <div class="tool-card">
+              <img src="./asset/devicon--figma.svg" alt="" />
+              <span>Figma</span>
+            </div>
+            <div class="tool-card">
+              <img src="./asset/skill-icons--html.svg" alt="" />
+              <span>HTML</span>
+            </div>
+            <div class="tool-card">
+              <img src="./asset/skill-icons--css.svg" alt="" />
+              <span>CSS</span>
+            </div>
+            <div class="tool-card">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg"
+                alt=""
+              />
+              <span>JavaScript</span>
+            </div>
+            <div class="tool-card">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg"
+                alt=""
+              />
+              <span>Tailwind CSS</span>
+            </div>
+            <div class="tool-card">
+              <img src="./asset/thesvg-color--lightroom.svg" alt="" />
+              <span>Lightroom</span>
+            </div>
+          </div>
+          <p class="tools-kicker">DESIGN · DEVELOP · CREATE</p>
+          <h1>Tools And Skills</h1>
+          <a class="tools-cta" href="#skill-levels">
+            View skills
+            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+          </a>
+        </div>
 
-        <div class="container-utama-tools">
-          <div class="spinner-container">
-            <div class="icon-wrapper">
-              <img src="./asset/devicon--figma.svg" alt="Figma" />
-            </div>
-            <div class="icon-wrapper">
-              <img src="./asset/skill-icons--html.svg" alt="HTML" />
-            </div>
-            <div class="icon-wrapper">
-              <img src="./asset/skill-icons--css.svg" alt="CSS" />
-            </div>
-            <div class="icon-wrapper">
-              <img src="./asset/thesvg-color--lightroom.svg" alt="Lightroom" />
+        <div class="skills-bar-container" id="skill-levels">
+          <div class="skill-item">
+            <span class="skill-name">UI/UX Design</span>
+            <div class="bar-container">
+              <div class="bar-fill" style="--progress: 80%">
+                <div class="bar-thumb"></div>
+              </div>
             </div>
           </div>
 
-          <div class="skills-bar-container">
-            <div class="skill-item">
-              <span class="skill-name">UI/UX Design</span>
-              <div class="bar-container">
-                <div class="bar-fill" style="--progress: 80%">
-                  <div class="bar-thumb"></div>
-                </div>
+          <div class="skill-item">
+            <span class="skill-name">Website Development</span>
+            <div class="bar-container">
+              <div class="bar-fill" style="--progress: 85%">
+                <div class="bar-thumb"></div>
               </div>
             </div>
+          </div>
 
-            <div class="skill-item">
-              <span class="skill-name">Website Development</span>
-              <div class="bar-container">
-                <div class="bar-fill" style="--progress: 85%">
-                  <div class="bar-thumb"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <span class="skill-name">Image Editing</span>
-              <div class="bar-container">
-                <div class="bar-fill" style="--progress: 80%">
-                  <div class="bar-thumb"></div>
-                </div>
+          <div class="skill-item">
+            <span class="skill-name">Image Editing</span>
+            <div class="bar-container">
+              <div class="bar-fill" style="--progress: 80%">
+                <div class="bar-thumb"></div>
               </div>
             </div>
           </div>
@@ -151,83 +191,77 @@
       </section>
 
       <section id="project" class="project-text-gerak">
-        <div class="text-gerak-project">
-          <div class="text-gerak-content-project">
-            <span>PROJECT PROJECT PROJECT</span>
-            <span>PROJECT PROJECT PROJECT</span>
+        <div class="project-marquee" aria-hidden="true">
+          <div class="project-marquee-track">
+            <span>PROJECT</span>
+            <span>PROJECT</span>
+            <span>PROJECT</span>
+            <span>PROJECT</span>
           </div>
         </div>
-        <h1>Project</h1>
+        <div
+          class="project-gallery"
+          role="group"
+          aria-label="Selected projects"
+        >
+          <a
+            class="project-tile project-tile-far-left"
+            href="https://7summit.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open 7Summit Indonesia project"
+          >
+            <img src="./asset/7summit-hero.webp" alt="" />
+            <span>7Summit Indonesia</span>
+          </a>
+          <a
+            class="project-tile project-tile-left"
+            href="https://svara-nusantara.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Svara Nusantara project"
+          >
+            <img src="./asset/SVARA.png" alt="" />
+            <span>Svara Nusantara</span>
+          </a>
+          <a
+            class="project-tile project-tile-center"
+            href="https://sekolah-unggul.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Sekolah Unggul project"
+          >
+            <img src="./asset/SEKOLAH.png" alt="" />
+            <span>Sekolah Unggul</span>
+          </a>
+          <a
+            class="project-tile project-tile-right"
+            href="https://ui-food-tailwind.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open UI Food Tailwind project"
+          >
+            <img
+              src="./asset/screencapture-ui-food-tailwind-vercel-app-2026-09-09-13_47_51.png"
+              alt=""
+            />
+            <span>UI Food Tailwind</span>
+          </a>
+        </div>
 
-        <div class="projects-container">
-          <!-- Card 1 -->
-          <div class="project-card">
-            <div class="card-banner">
-              <img src="./asset/SVARA.png" alt="Svara Nusantara" />
-            </div>
-            <div class="card-content">
-              <div class="card-info">
-                <a
-                  href="https://svara-nusantara.vercel.app/"
-                  target="_blank"
-                  rel="noopener"
-                  class="sub-title"
-                  >CLICK HERE TO VISIT</a
-                >
-                <h3 class="main-title">SVARA NUSANTARA</h3>
-              </div>
-              <div class="card-arrow">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="project-card">
-            <div class="card-banner">
-              <img src="./asset/SEKOLAH.png" alt="Sekolah Unggul" />
-            </div>
-            <div class="card-content">
-              <div class="card-info">
-                <a
-                  href="https://sekolah-unggul.vercel.app/"
-                  target="_blank"
-                  rel="noopener"
-                  class="sub-title"
-                  >CLICK HERE TO VISIT</a
-                >
-                <h3 class="main-title">SEKOLAH UNGGUL</h3>
-              </div>
-              <div class="card-arrow">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="project-card">
-            <div class="card-banner">
-              <img
-                src="./asset/screencapture-ui-food-tailwind-vercel-app-2026-09-09-13_47_51.png"
-                alt="UI Food Tailwind"
-              />
-            </div>
-            <div class="card-content">
-              <div class="card-info">
-                <a
-                  href="https://ui-food-tailwind.vercel.app/"
-                  target="_blank"
-                  rel="noopener"
-                  class="sub-title"
-                  >CLICK HERE TO VISIT</a
-                >
-                <h3 class="main-title">UI FOOD TAILWIND</h3>
-              </div>
-              <div class="card-arrow">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </div>
-            </div>
-          </div>
+        <div class="project-invitation">
+          <p class="project-kicker">SELECTED WORK</p>
+          <h1>Let's Create Something<br />Exceptional</h1>
+          <p class="project-invitation-copy">
+            Digital experiences shaped with clarity and purpose.
+          </p>
+          <a class="project-bottom-cta" href="#contact">
+            Start a project
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+              aria-hidden="true"
+            ></i>
+          </a>
         </div>
       </section>
 
@@ -275,31 +309,36 @@
 
       <footer id="contact-footer">
         <div class="footer-hero">
-          <!-- Elemen penampung efek pendaran cahaya (glow) -->
-          <div class="cursor-glow" id="footerGlow"></div>
-
           <div class="footer-content">
-            <p class="footer-subtitle">HAVE AN IDEA IN MIND?</p>
-            <h1 class="footer-title">
-              LET'S WORK <br />
-              <span class="glow-text">TOGETHER.</span>
-            </h1>
-
-            <div class="footer-cta">
-              <a
-                href="mailto:vittorio0521@student.abudzar.sch.id"
-                class="btn-email"
-              >
-                <span>Get in Touch</span>
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+            <div class="footer-topline">
+              <a class="footer-mark" href="#home" aria-label="Back to top">V</a>
+              <p>CREATE WITH INTENTION.</p>
             </div>
 
-            <div class="footer-bottom">
-              <p class="copyright">
-                © 2026 Vittorio Veneto Setiyantara. All rights reserved.
-              </p>
-              <div class="footer-socials">
+            <div class="footer-navigation">
+              <div class="footer-link-group">
+                <h2>MENU</h2>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#project">Projects</a>
+                <a href="#contact">Contact</a>
+              </div>
+              <div class="footer-link-group">
+                <h2>CONTACT</h2>
+                <p>Based in Indonesia</p>
+                <a href="mailto:vittorio0521@student.abudzar.sch.id">
+                  vittorio0521@student.abudzar.sch.id
+                </a>
+                <a
+                  class="footer-message-link"
+                  href="mailto:vittorio0521@student.abudzar.sch.id"
+                >
+                  Send a message
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+              <div class="footer-link-group">
+                <h2>SOCIALS</h2>
                 <a
                   href="https://instagram.com/vttzrio_"
                   target="_blank"
@@ -314,168 +353,153 @@
                 >
               </div>
             </div>
+
+            <a
+              class="footer-wordmark"
+              href="#home"
+              aria-label="Vittorio Veneto, back to top"
+              >VENETO</a
+            >
+
+            <div class="footer-bottom">
+              <p>© 2026 Vittorio Veneto Setiyantara</p>
+              <p>DESIGN &amp; CODE BY VITTORIO</p>
+            </div>
           </div>
         </div>
       </footer>
     </main>
-    <nav class="liquid-dock" aria-label="Primary navigation">
-      <svg class="liquid-shape" aria-hidden="true" focusable="false">
-        <path class="liquid-path"></path>
-      </svg>
-      <svg
+    <div class="liquid-dock-shell">
+      <img
         class="liquid-brand"
-        viewBox="0 0 48 54"
-        role="img"
-        aria-label="Vittorio Veneto logo"
-      >
-        <defs>
-          <clipPath id="brand-blue-clip">
-            <path d="M3 20h16c7 0 12 5 12 12v18H16C8 50 3 45 3 37z" />
-          </clipPath>
-        </defs>
-        <path
-          fill="#fbbc32"
-          d="M16 2h17c8 0 13 5 13 13v24H27c-7 0-11 4-11 11z"
-        />
-        <circle cx="30" cy="30" r="10" fill="#0f0f20" />
-        <path
-          fill="#4285ed"
-          d="M3 20h16c7 0 12 5 12 12v18H16C8 50 3 45 3 37z"
-        />
-        <path
-          fill="#53c8ee"
-          d="M3 20h16c4 0 8 2 10 5L3 51z"
-          clip-path="url(#brand-blue-clip)"
-        />
-        <path
-          d="m15 17 11 27 13-27"
-          fill="none"
-          stroke="#ff5bbb"
-          stroke-width="9"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-      <div class="liquid-bubble" aria-hidden="true">
-        <span class="liquid-bubble-icons"></span>
-      </div>
-      <span class="liquid-label" aria-hidden="true">Home</span>
-      <div class="liquid-tabs" role="tablist" aria-label="Portfolio sections">
-        <button
-          class="liquid-tab"
-          type="button"
-          role="tab"
-          data-section="home"
-          aria-label="Home"
-          aria-selected="true"
-          tabindex="0"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+        src="./asset/logo%20vitto.png"
+        alt="Vittorio Veneto logo"
+      />
+      <nav class="liquid-dock" aria-label="Primary navigation">
+        <svg class="liquid-shape" aria-hidden="true" focusable="false">
+          <path class="liquid-path"></path>
+        </svg>
+        <div class="liquid-bubble" aria-hidden="true">
+          <span class="liquid-bubble-icons"></span>
+        </div>
+        <span class="liquid-label" aria-hidden="true">Home</span>
+        <div class="liquid-tabs" role="tablist" aria-label="Portfolio sections">
+          <button
+            class="liquid-tab"
+            type="button"
+            role="tab"
+            data-section="home"
+            aria-label="Home"
+            aria-selected="true"
+            tabindex="0"
           >
-            <path d="m3 10 9-7 9 7"></path>
-            <path d="M5 9v11h14V9"></path>
-            <path d="M9 20v-6h6v6"></path>
-          </svg>
-        </button>
-        <button
-          class="liquid-tab"
-          type="button"
-          role="tab"
-          data-section="about"
-          aria-label="About"
-          aria-selected="false"
-          tabindex="-1"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m3 10 9-7 9 7"></path>
+              <path d="M5 9v11h14V9"></path>
+              <path d="M9 20v-6h6v6"></path>
+            </svg>
+          </button>
+          <button
+            class="liquid-tab"
+            type="button"
+            role="tab"
+            data-section="about"
+            aria-label="About"
+            aria-selected="false"
+            tabindex="-1"
           >
-            <circle cx="12" cy="8" r="4"></circle>
-            <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path>
-          </svg>
-        </button>
-        <button
-          class="liquid-tab"
-          type="button"
-          role="tab"
-          data-section="tools"
-          aria-label="Tools"
-          aria-selected="false"
-          tabindex="-1"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M5 21v-2a7 7 0 0 1 14 0v2"></path>
+            </svg>
+          </button>
+          <button
+            class="liquid-tab"
+            type="button"
+            role="tab"
+            data-section="tools"
+            aria-label="Tools"
+            aria-selected="false"
+            tabindex="-1"
           >
-            <path d="m14.7 6.3 3 3"></path>
-            <path d="M4 20 14.5 9.5"></path>
-            <path d="m16 4 4 4-3 3-4-4z"></path>
-            <path d="m3 21 3-1 1-3-3-1-2 2z"></path>
-          </svg>
-        </button>
-        <button
-          class="liquid-tab"
-          type="button"
-          role="tab"
-          data-section="project"
-          aria-label="Project"
-          aria-selected="false"
-          tabindex="-1"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m14.7 6.3 3 3"></path>
+              <path d="M4 20 14.5 9.5"></path>
+              <path d="m16 4 4 4-3 3-4-4z"></path>
+              <path d="m3 21 3-1 1-3-3-1-2 2z"></path>
+            </svg>
+          </button>
+          <button
+            class="liquid-tab"
+            type="button"
+            role="tab"
+            data-section="project"
+            aria-label="Project"
+            aria-selected="false"
+            tabindex="-1"
           >
-            <path d="m3 7 9-4 9 4-9 4-9-4Z"></path>
-            <path d="m3 12 9 4 9-4M3 17l9 4 9-4"></path>
-          </svg>
-        </button>
-        <button
-          class="liquid-tab"
-          type="button"
-          role="tab"
-          data-section="contact"
-          aria-label="Contact"
-          aria-selected="false"
-          tabindex="-1"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m3 7 9-4 9 4-9 4-9-4Z"></path>
+              <path d="m3 12 9 4 9-4M3 17l9 4 9-4"></path>
+            </svg>
+          </button>
+          <button
+            class="liquid-tab"
+            type="button"
+            role="tab"
+            data-section="contact"
+            aria-label="Contact"
+            aria-selected="false"
+            tabindex="-1"
           >
-            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-            <path d="m3 7 9 6 9-6"></path>
-          </svg>
-        </button>
-      </div>
-    </nav>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
     <script src="./script.js"></script>
   </body>

@@ -121,38 +121,12 @@
 
   requestAnimationFrame(() => runSequence(0));
 })();
-const hero = document.querySelector(".hero-section");
-const glow = document.querySelector(".cursor-glow");
-
-if (hero && glow) {
-  hero.addEventListener("mousemove", (e) => {
-    const rect = hero.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    glow.style.setProperty("--x", `${x}px`);
-    glow.style.setProperty("--y", `${y}px`);
-  });
-}
-const footerHero = document.querySelector(".footer-hero");
-const footerGlow = document.getElementById("footerGlow");
-
-if (footerHero && footerGlow) {
-  footerHero.addEventListener("mousemove", (e) => {
-    const rect = footerHero.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    footerGlow.style.setProperty("--x", `${x}px`);
-    footerGlow.style.setProperty("--y", `${y}px`);
-  });
-}
 // ================= REVEAL ON SCROLL (INTERSECTION OBSERVER) =================
 document.addEventListener("DOMContentLoaded", () => {
   const revealTargets = [
     ["#about .text-about", 100],
-    ["#tools h1", 80],
-    ["#tools .container-utama-tools", 220],
+    ["#tools .tools-showcase", 80],
+    ["#tools .skills-bar-container", 220],
     ["#project h1", 80],
     ["#project .projects-container", 220],
     ["#contact .text-contact", 100],
@@ -197,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const scrollContainer = document.querySelector("[data-scroll-container]");
 const liquidDock = document.querySelector(".liquid-dock");
+const liquidDockShell = document.querySelector(".liquid-dock-shell");
 const liquidTabs = Array.from(document.querySelectorAll(".liquid-tab"));
 const liquidPath = document.querySelector(".liquid-path");
 const liquidBubble = document.querySelector(".liquid-bubble");
@@ -205,7 +180,7 @@ const liquidLabel = document.querySelector(".liquid-label");
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
-const fixedElements = [document.getElementById("loader"), liquidDock];
+const fixedElements = [document.getElementById("loader"), liquidDockShell];
 
 fixedElements.forEach((element) => {
   if (element) document.body.appendChild(element);
